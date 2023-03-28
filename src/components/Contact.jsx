@@ -7,6 +7,10 @@ import { SectionWrapper } from "../hoc"
 import { slideIn } from "../utils/motion"
 
 
+
+const {VITE_PUBLIC_API_KEY, VITE_SERVICE_KEY, VITE_TEMPLATE_KEY, VITE_TO_EMAIL} = import.meta.env
+
+console.log(VITE_PUBLIC_API_KEY)
 const Contact = () => {
   const formRef = useRef()
   const [form, setForm] = useState({
@@ -32,15 +36,16 @@ const handleSubmit = (e)=>{
 //service_scmutkh
 
 
-    emailjs.send('service_scmutkh', 'template_rzhvn7c',
+    emailjs.send(VITE_SERVICE_KEY, VITE_TEMPLATE_KEY,
       {
         from_name: form.name,
         to_name: 'Fulton',
         from_email: form.email,
-        to_email: 'fultonsuperbe@gmail.com',
-        message: form.message
+        to_email: VITE_TO_EMAIL,
+        message: form.message,
+        email: form.email
       },
-      'T9GmuSuZtiszemKYT'
+      VITE_PUBLIC_API_KEY
     ).then(()=>{
       setLoading(false)
       alert('Thank you, i will get back to you as soon as possible')
@@ -50,9 +55,9 @@ const handleSubmit = (e)=>{
         email: '',
         message:'',
       })
-    }, (erro)=>{
+    }, (error)=>{
       setLoading(false)
-      console.log(err)
+      console.log(error)
       alert('Something went wrong')
     })
 }
