@@ -10,7 +10,6 @@ import { slideIn } from "../utils/motion"
 
 const {VITE_PUBLIC_API_KEY, VITE_SERVICE_KEY, VITE_TEMPLATE_KEY, VITE_TO_EMAIL} = import.meta.env
 
-console.log(VITE_PUBLIC_API_KEY)
 const Contact = () => {
   const formRef = useRef()
   const [form, setForm] = useState({

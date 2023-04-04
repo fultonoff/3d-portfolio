@@ -5,10 +5,12 @@ import { Canvas } from "@react-three/fiber";
 
 
 
+
+
+
 const Computers = ({isMobile}) => {
+
   const computer = useGLTF("../../../public/desktop_pc/scene.gltf");
-
-
 
   return (
     <mesh>
@@ -34,6 +36,7 @@ const Computers = ({isMobile}) => {
 }
 
 const computersCanvas =()=>{
+  
 
   const [isMobile, setIsMobile] = useState(false);
 
