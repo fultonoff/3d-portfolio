@@ -10,7 +10,7 @@ import { fadeIn, textVariant } from '../utils/motion'
 
 const ProjectCard = ({name, tags, description, index, image, source_code_link})=>{
     return(
-      <motion.div variants={fadeIn('up', 'spring', index * 0.5, 0.75)}>
+      <motion.div key={index} variants={fadeIn('up', 'spring', index * 0.5, 0.75)}>
         <Tilt options={
           {
             max: 45,
@@ -67,7 +67,7 @@ const Works = () => {
     <div className='mt-20 flex flex-wrap gap-7'>
     {projects.map((project, index)=>{
       return(
-        <ProjectCard key={project.index} {...project} index={index}/>
+        <ProjectCard key={index} {...project} index={index}/>
         
       )
     })}
